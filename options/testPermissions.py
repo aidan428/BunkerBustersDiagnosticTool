@@ -41,6 +41,7 @@ def test_permissions_in_dir():
         f.write("Permissions test pass")
         f.close()
         print(Fore.GREEN + "Bunker Busters: Nuclear Rain directory has read and write permissions!" + Style.RESET_ALL)
+        print("\n")
     except Exception as e:
         print(Fore.RED + "The Bunker Busters: Nuclear Rain base directory is not writable." + Style.RESET_ALL)
         sleep(2)
