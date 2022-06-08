@@ -22,13 +22,14 @@ def clear_screen():
   click.clear()
 
 def music_play():
-  playsound('assets/RunningHill.mp3')
+  playsound('assets/welcome.mp3')
 
 def background_music():
   music_thread = Thread(target=music_play)
   music_thread.start()
   music_thread
-  
+
 clear_screen()
 generate_welcome()
 background_music()
+

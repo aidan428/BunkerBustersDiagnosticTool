@@ -1,9 +1,11 @@
 """This script generates the menu for the console application"""
 from options.internetTest import print_results
 from options.spaldotechServiceStatus import check_status
+from options.testPermissions import test_permissions_in_dir
 from colorama import Fore, Back, Style
 from welcome import background_music, music_play
 from time import sleep
+from playsound import playsound
 import os
 
 menu_options = {
@@ -33,9 +35,12 @@ def menu_handler():
            print_results()
         elif option == 2:
             check_status()
+        elif option == 3:
+            test_permissions_in_dir()
         elif option == 0:
-            print("Thank you for using this tool!")
-            sleep(4)
+            print(Fore.GREEN + Style.BRIGHT + "Thank you for using this tool!" + Style.RESET_ALL)
+            playsound('assets/touche.mp3')
+            sleep(2)
             quit()
             
 

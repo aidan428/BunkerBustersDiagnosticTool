@@ -23,7 +23,7 @@ def root_check():
     domain = "www.spaldotech.co.uk"
     url = "https://www.spaldotech.co.uk/robots.txt"
     save_as = "BBDiag/RootRobot.txt"
-
+    
     try:
         with urlopen(url) as file:
             content = file.read().decode()
@@ -33,6 +33,7 @@ def root_check():
     except Exception as e:
         statusStr = domain + "            "+ Fore.RED + "OFFLINE" + Style.RESET_ALL
     print(statusStr)
+
 
 
 def api_check():
@@ -49,6 +50,7 @@ def api_check():
     except Exception as e:
         statusStr = domain + "            "+ Fore.RED + "OFFLINE" + Style.RESET_ALL
     print(statusStr)
+
 
 def vision_check():
     domain = "vision.spaldotech.co.uk"
