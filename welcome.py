@@ -1,6 +1,7 @@
+import click
+import os
 from concurrent.futures import thread
 from colorama import Fore, Back, Style
-import click
 from playsound import playsound
 from threading import Thread
 
@@ -12,11 +13,9 @@ art = ''' ______     ______   ______     __         _____     ______     ______ 
   \/_____/   \/_/     \/_/\/_/   \/_____/   \/____/   \/_____/     \/_/   \/_____/   \/_____/   \/_/\/_/ 
                                                                                                          '''
 
-def generate_welcome() :
+def print_art() :
   print(art)
-  print(Back.GREEN + "Welcome to the Bunker Busters: Nuclear Rain Diagnostic Tool v0.3" + Style.RESET_ALL)
-  print(Fore.YELLOW + "Simply choose an option below by typing the menu number and pressing enter." + Style.RESET_ALL)
-  print("\n")
+  print(Back.GREEN + "Welcome " + get_user_name() + " to the Bunker Busters: Nuclear Rain Diagnostic Tool v0.3" + Style.RESET_ALL)
 
 def clear_screen():
   click.clear()
@@ -29,7 +28,18 @@ def background_music():
   music_thread.start()
   music_thread
 
+def get_user_name():
+  username = os.getlogin().capitalize()
+  return username
+
+def back_to_menu():
+  print(Fore.YELLOW + "Simply choose an option below by typing the menu number and pressing enter." + Style.RESET_ALL)
+  print("\n")
+
+
 clear_screen()
-generate_welcome()
+print_art()
 background_music()
+
+
 

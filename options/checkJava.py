@@ -41,11 +41,9 @@ def sub_menu_to_download_java_8():
             # Attempt to open edge in incognito mode and navigate to the link to download Quick Stego. Failing that produces a generic error and then the error trace.
             try:
                 subprocess.call("C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --profile-directory=Default https://drive.google.com/file/d/1SaTnet-3K-9j5VqCxQS_qZckjgrmSYTp/view?usp=sharing")
-                print(Fore.GREEN + "The browser has opened. Please download the exe file and install Java. This tool will now exit. \nGoodbye!")
-                exit()
+                print(Fore.GREEN + "The browser has opened. Please download the exe file and install Java. This tool will now exit. \n")
             except Exception as e:
                 print(Fore.RED + "The default browser could not be opened. Please navigate to the following link: " + Style.RESET_ALL + "https://drive.google.com/file/d/1SaTnet-3K-9j5VqCxQS_qZckjgrmSYTp/view?usp=sharing")
-                exit()
         elif option == "N" or option == "n":
                 print(Fore.YELLOW + "Please navigate to the following link in your own time to download the correct version: " + Style.RESET_ALL + "https://drive.google.com/file/d/1SaTnet-3K-9j5VqCxQS_qZckjgrmSYTp/view?usp=sharing")
                 sleep(2)
