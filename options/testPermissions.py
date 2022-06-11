@@ -8,8 +8,8 @@ import sys
 
 
 def check_default_dir_exists():
-    path = "C:\\Users\\" + get_username() + "\\AppData\\Roaming\\.technic\\modpacks\\bunkerbusters-nuclear-rain\\bin"
-    isdir = os.path.isdir(path)
+    path = "C:\\Users\\" + get_username() + "\\AppData\\Roaming\\.technic\\modpacks\\bunkerbusters-nuclear-rain"
+    isdir = os.path.isdir(path + "'\bin'")
 
     if isdir == True:
         print(Fore.GREEN + "Bunker Busters: Nuclear Rain directory located!" + Style.RESET_ALL)
@@ -23,7 +23,7 @@ def check_default_dir_exists():
 
         if userCheck == True:
             print(Fore.GREEN + "Bunker Busters: Nuclear Rain directory located!" + Style.RESET_ALL)
-            return BBUserDir
+            return userLocation
         else:
             print(Fore.RED + "Failed to locate directory. Please locate the directory and re-run this tool.\n")
             print("This tool will now close.")

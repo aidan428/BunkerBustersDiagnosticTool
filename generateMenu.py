@@ -1,4 +1,5 @@
 """This script generates the menu for the console application"""
+from options.checkCorruptedInstall import compare_md5
 from options.internetTest import print_results
 from options.spaldotechServiceStatus import check_status
 from options.testPermissions import test_permissions_in_dir
@@ -11,11 +12,11 @@ from playsound import playsound
 import os
 
 menu_options = {
-    1: "Test internet connectivity",
-    2: "Check Spaldotech service status",
+    1: "Test Internet Connectivity",
+    2: "Check Spaldotech Service Status",
     3: "Test file permissions",
-    4: "Check Java version",
-    5: "Check for corrupted install",
+    4: "Verify Java Version",
+    5: "Verify Modpack Installation",
     9: "Clear Terminal Window",
     0: "Exit"
 }
@@ -40,6 +41,7 @@ def menu_handler():
             print_results()
         elif option == 2:
             print("\n")
+            print_results()
             check_status()
         elif option == 3:
             print("\n")
@@ -47,6 +49,9 @@ def menu_handler():
         elif option == 4: 
             print("\n")
             determine_compatible_version()
+        elif option == 5:
+            print("\n")
+            compare_md5()
         elif option == 9:
             clear_screen()
             print_art()
