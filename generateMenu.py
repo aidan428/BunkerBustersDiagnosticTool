@@ -50,7 +50,6 @@ def menu_handler():
             print("\n")
             determine_compatible_version()
         elif option == 5:
-            print("\n")
             compare_md5()
         elif option == 9:
             clear_screen()

@@ -3,6 +3,7 @@ import sys
 import requests
 import json
 from options.testPermissions import test_permissions_in_dir, check_default_dir_exists
+from options.spaldotechServiceStatus import api_check
 from time import sleep
 from colorama import Fore, Back, Style
 
@@ -25,11 +26,18 @@ def calculate_installed_forge_md5():
         # print(e)
 
 def compare_md5():
-    if get_forge_md5_from_api() == calculate_installed_forge_md5():
-        print(Fore.GREEN + "\nThe Forge Mod Loader version has passed MD5 verification and is not corrupted\n" + Style.RESET_ALL)
-    else:
-        print(Fore.RED + "The Forge Mod Loader version has failed to pass MD5 verification and may be corrupted\n" + Style.RESET_ALL)
-        print(Fore.YELLOW + "Please select the 'reinstall pack' option from the modpack options section in the Technic Launcher. This will correct the Forge version.")
-        sleep(4)
-        print(Fore.GREEN + "This program will now exit")
-        sys.exit(1)
+    try:
+        print(Fore.YELLOW + "Please stand by while the API is queried. Please note this can take a few moments." + Style.RESET_ALL )
+        if api_check() == 1:
+            if get_forge_md5_from_api() == calculate_installed_forge_md5():
+                print(Fore.GREEN + "\nThe Forge Mod Loader version has passed MD5 verification and is not corrupted\n" + Style.RESET_ALL)
+            else:
+                print(Fore.RED + "The Forge Mod Loader version has failed to pass MD5 verification and may be corrupted\n" + Style.RESET_ALL)
+                print(Fore.YELLOW + "Please select the 'reinstall pack' option from the modpack options section in the Technic Launcher. This will correct the Forge version.")
+                sleep(4)
+                print(Fore.GREEN + "This program will now exit")
+                sys.exit(1)
+        else:
+            print(Fore.RED + "The API is not available. Please contact the system administrator!\n" + Style.RESET_ALL)
+    except Exception as e:
+        print(e)
