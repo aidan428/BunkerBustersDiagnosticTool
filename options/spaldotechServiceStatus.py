@@ -12,7 +12,6 @@ def check_env():
     except Exception as e:
         e = e
 
-
 def prepare_env():
     try:
         os.mkdir("BBDiag")
@@ -40,7 +39,6 @@ def api_check():
     domain = "api.spaldotech.co.uk"
     url = "https://api.spaldotech.co.uk/robots.txt"
     save_as = "BBDiag/APIRobot.txt"
-    statusInt = 0
 
     try:
         with urlopen(url) as file:
@@ -52,6 +50,7 @@ def api_check():
     except Exception as e:
         statusStr = domain + "            "+ Fore.RED + "OFFLINE" + Style.RESET_ALL
         statusInt = 0
+        print(e)
     print(statusStr)
     return statusInt
 
