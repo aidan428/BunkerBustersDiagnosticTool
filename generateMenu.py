@@ -5,6 +5,7 @@ from options.spaldotechServiceStatus import check_status
 from options.testPermissions import test_permissions_in_dir
 from options.clearScreen import clear_screen
 from options.checkJava import determine_compatible_version
+from options.play66 import order_66
 from colorama import Fore, Back, Style
 from welcome import back_to_menu, background_music, music_play, print_art
 from time import sleep
@@ -52,6 +53,10 @@ def menu_handler():
         elif option == 5:
             compare_md5()
         elif option == 9:
+            clear_screen()
+            print_art()
+        elif option == 66:
+            order_66()
             clear_screen()
             print_art()
 
