@@ -1,2 +1,2 @@
 # BunkerBustersDiagnosticTool
-This tool is used to help diagnose the Bunker Busters: Nuclear Rain modpack. 
+This tool is used to help diagnose the Bunker Busters: Nuclear Rain modpack. It can be used to establish the status of the API and determine if an issue is due to a server outage or a local issue.
